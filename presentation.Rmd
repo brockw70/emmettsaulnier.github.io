@@ -710,27 +710,28 @@ agent_df=agent_df[-c(1)]
 ```{r ani, echo = F}
 include_graphics('data/map.gif')
 ```
-- Treated households: living near LIGA MX stadiums (<19 mi)
-   + Approximate distance to stadium with zipcodes and long/lats
-   + Could not evaluate winning/losing effects
-   + Evaluated probability of applying on gamedays with gameday as outcome variable
-   + Evaluated probability of paying back loans
- 
+.smallest[
++ Treated households: living near LIGA MX stadiums (<19 mi)
++ Approximate distance to stadium with zipcodes and long/lats
++ Could not evaluate winning/losing effects
++ Evaluated probability of applying on gamedays with gameday as outcome variable
++ Evaluated probability of paying back loans
+  ]
   
 ]
 .pull-right[
 ```{r prop_score, echo = F}
 include_graphics('data/propensity_score.png')
 ```
-- Using propensity score matching:  
- + Demographics: age*, gender***, relationship*, dependents***, income, application score, and loan sequence 
+.smallest[
+- Using **propensity score matching**:
+ + Demographics: age\*, gender\*\*\*, relationship\*, dependents\*\*\*, income, application score, and loan sequence 
  + Inconclusive results in the regressions
  + Need preferred team information
  + Look at data with applications from May-September (soccer off-season)
  + Evaluate lagged effects: if a team loses -> did they apply the next day?  
- 
+ ]
 
-  
 ]
 ---
 # Futbol Regression Results
