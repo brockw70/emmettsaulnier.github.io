@@ -725,9 +725,19 @@ include_graphics('data/map.gif')
 ]
 ---
 # Futbol Regression Results
-```{r fut_reg, echo = F, out.width="40%", out.height="40%"}
-include_graphics("data/fut_reg.png")
+.pull-left[
+```{r propscore_game, echo = F, out.width="80%", out.height="80%"}
+include_graphics("data/prob_apply_gameday.png")
 ```
+]
+
+.pull-right[
+```{r propscore_repay, echo = F,out.width="80%", out.height="80%"}
+include_graphics("data/prob_repay.png")
+```
+]
+
+
 
 ---
 
@@ -753,7 +763,7 @@ holiday_highlvl  %>%
 - Applications peak on March 20  
 - Statistical significant results from regressing number of applications on Holidays, fixing weekday and month:  
   - Ascension day, Christmas, Benito Juarez Day, New Years, Mother’s Day, and Constitution Day  
-  - Carnival was not significant after included FE  
+  - Carnival was not significant after including FE  
 - Further Analysis:  
   - Look at lag effects from holidays for a more robust evaluation of the impact of holidays such as Carnival  
 ]
