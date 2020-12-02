@@ -204,10 +204,14 @@ Pathways = data.frame(table(LoanSteps2$Transition))
 
 Pathways=Pathways[-c(4,5,6,9, 13, 14, 30, 34, 36, 38, 39, 40, 41), ]
 LoanSteps2 = LoanSteps2[!(is.na(LoanSteps2$diff_min)),]
+t1 = data.frame(table(LoanSteps2$Transition))
+t1=t1[c(21:29, 31,32), ]
+
+LoanSteps2$diff_hours = LoanSteps2$diff_min/60
 
 G = LoanSteps2 %>% 
   group_by(Transition) %>% 
-  select(diff_min) %>%
+  select(diff_hours) %>%
   summarise_each(funs(min = min, 
                       q25 = quantile(., 0.25), 
                       median = median, 
@@ -216,13 +220,16 @@ G = LoanSteps2 %>%
                       mean = mean, 
                       sd = sd)) %>%
   data.frame()
-
-G[,2:ncol(G)] = round(G[,2:ncol(G)], 2)
+G[,2:ncol(G)] = round(G[,2:ncol(G)], digits = 1)
 G = na.omit(G)
 G=G[20:30, ]
+G$count = t1[,2]
+Event = data.frame(c("Update User Confirm", "Update User Confirm", "Document Validation",  "Document Validation", "Document Validation", "Address Validation",  "Address Validation", "Phone Validation", "Phone Validation", "Bank Validation", "Bank Validation"))
+G = cbind.data.frame(Event, G)
+colnames(G)[1] <- "Event"
 
 
-#xtable((G))
+#xtable((G), digits=c(0,0,0,0,0,1,0,0,1,0,1))
 ```
 
 # What are the drivers of application and repayment of digital credit?  
